@@ -1,0 +1,129 @@
+{
+  "type": "object",
+  "headerTemplate": "{{self.name.ru}}",
+  "title": "Зверика",
+  "id": "item",
+  "properties": {
+    "item_id": {
+      "title": "Идентификатор",
+      "type": "string"
+    },
+    "settings": {
+      "title": "Настройки",
+      "type": "object",
+      "properties": {
+        "sold": {
+          "title": "Продан",
+          "type": "boolean",
+          "format": "checkbox"
+        },
+        "reserved": {
+          "title": "Зарезервирован",
+          "type": "boolean",
+          "format": "checkbox"
+        },
+        "hideDeliveryInfo": {
+          "title": "Скрыть о доставке",
+          "type": "boolean",
+          "format": "checkbox"
+        },
+        "hideLayawayInfo": {
+          "title": "Скрыть о рассрочке",
+          "type": "boolean",
+          "format": "checkbox"
+        },
+        "isNotTeddy": {
+          "title": "Не тедди",
+          "type": "boolean",
+          "format": "checkbox"
+        }
+      }
+    },
+    "item_title": {
+      "title": "Название",
+      "ref": "/data/schemas/translatable_string.json"
+    },
+    "photos": {
+      "title": "Фотографии",
+      "type": "object",
+      "properties": {
+        "ru": {
+          "type": "array",
+          "items": {
+            "$ref": "/data/schemas/photo.json"
+          }
+        },
+        "en": {
+          "type": "array",
+          "items": {
+            "$ref": "/data/schemas/photo.json"
+          }
+        }
+      }
+    },
+    "url": {
+      "title": "Ссылка",
+      "type": "object",
+      "properties": {
+        "ru": {
+          "type": "string",
+          "template": "/shop/{{c}}/{{i}}",
+          "watch": {
+            "c": "collection.collection_id",
+            "i": "item.item_id"
+          }
+        },
+        "en": {
+          "type": "string",
+          "template": "/en/shop/{{c}}/{{i}}",
+          "watch": {
+            "c": "collection.collection_id",
+            "i": "item.item_id"
+          }
+        }
+      },
+      "required": ["ru", "en"]
+    },
+
+    "name": {
+      "title": "Имя",
+      "$ref": "/data/schemas/translatable_string.json"
+    },
+    "item_description": {
+      "title": "Описание",
+      "$ref": "/data/schemas/translatable_string.json"
+    },
+    "materials": {
+      "title": "Материалы",
+      "$ref": "/data/schemas/translatable_string.json"
+    },
+    "accessories": {
+      "title": "Аксессуары",
+      "$ref": "/data/schemas/translatable_string.json"
+    },
+    "additionalnotes": {
+      "title": "Дополнительно",
+      "$ref": "/data/schemas/translatable_string.json"
+    },
+    "size": {
+      "title": "Размер",
+      "$ref": "/data/schemas/translatable_string.json"
+    },
+    "year": {
+      "title": "Год",
+      "$ref": "/data/schemas/translatable_string.json"
+    },
+    "price": {
+      "title": "Цена",
+      "$ref": "/data/schemas/translatable_string.json"
+    },
+
+    "raw": {
+      "$ref": "/data/schemas/translatable_html.json"
+    },
+    "rawEnd": {
+      "$ref": "/data/schemas/translatable_html.json"
+    }
+  },
+  "required": ["name", "item_title", "item_description", "materials", "accessories", "additionalnotes", "size", "year", "price","raw"]
+}

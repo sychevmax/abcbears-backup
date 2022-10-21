@@ -1,0 +1,9 @@
+{
+  "title": "фото",
+  "type": "string",   
+  "links": [{
+    "href": "{{self}}",
+    "mediaType": "image/jpeg",
+    "class": "adminImage"
+  }]
+}

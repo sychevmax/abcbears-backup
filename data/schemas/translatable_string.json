@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "properties": {
+    "ru": {
+      "type": "string"
+    },
+    "en": {
+      "type": "string"
+    }
+  },
+  "format": "grid"
+}

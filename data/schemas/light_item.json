@@ -1,0 +1,113 @@
+{
+  "type": "object",
+  "headerTemplate": "{{self.item_id}}",
+  "title": "Зверика",
+  "id": "item",
+  "properties": {
+    "item_id": {
+      "title": "Идентификатор",
+      "type": "string"
+    },
+    "settings": {
+      "title": "Настройки",
+      "type": "object",
+      "properties": {
+        "isPublic": {
+          "title": "Опубликован",
+          "type": "boolean",
+          "format": "checkbox"
+        },
+        "displayOnShop": {
+          "title": "Показывать в Магазине",
+          "type": "boolean",
+          "format": "checkbox"
+        },
+        "displayOnMyWorks": {
+          "title": "Показывать в Моих работах",
+          "type": "boolean",
+          "format": "checkbox"
+        },
+        "forExample": {
+          "title": "Для примера",
+          "type": "boolean",
+          "format": "checkbox"
+        },
+        "sold": {
+          "title": "Продан",
+          "type": "boolean",
+          "format": "checkbox"
+        },
+        "reserved": {
+          "title": "Зарезервирован",
+          "type": "boolean",
+          "format": "checkbox"
+        },
+        "onlyRussian": {
+          "title": "Только на русском",
+          "type": "boolean",
+          "format": "checkbox"
+        }
+      },
+      "required": ["sold", "reserved", "isPublic", "displayOnShop", "displayOnMyWorks", "onlyRussian"],
+      "format": "grid"
+    },
+    "item_title": {
+      "title": "Название",
+      "$ref": "/data/schemas/translatable_string.json"
+    },
+    "name": {
+      "title": "Имя",
+      "$ref": "/data/schemas/translatable_string.json"
+    },
+    "photos": {
+      "title": "Фотографии",
+      "type": "object",
+      "properties": {
+        "ru": {
+          "type": "array",
+          "format": "tabs",
+          "items": {
+            "$ref": "/data/schemas/photo.json"
+          }
+        },
+        "en": {
+          "type": "array",
+          "format": "tabs",
+          "items": {
+            "$ref": "/data/schemas/photo.json"
+          }
+        }
+      }
+    },
+    "url": {
+      "title": "Ссылка",
+      "type": "object",
+      "properties": {
+        "ru": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        }
+      },
+      "required": ["ru", "en"]
+    },
+    "item_description": {
+      "title": "Описание",
+      "$ref": "/data/schemas/translatable_html.json"
+    },
+    "item_shop_details": {
+      "title": "Только для магазина",
+      "$ref": "/data/schemas/translatable_html.json"
+    },
+    "price": {
+      "title": "Цена",
+      "$ref": "/data/schemas/translatable_string.json"
+    },
+    "sale": {
+      "title": "Цена со скидкой",
+      "$ref": "/data/schemas/translatable_string.json"
+    }
+  },
+  "required": ["item_id", "settings", "item_title", "name", "photos", "item_description", "item_shop_details", "price", "sale", "url"]
+}

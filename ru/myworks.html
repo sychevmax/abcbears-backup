@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head lang="ru">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <script type="text/javascript" src="/js/main.js"></script>
+    <title>ABCbears: Мои работы</title>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-16709372-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+</head>
+<body ng-app="abcbearsShop">
+<div class="outerWrapper">
+    <div class="innerWrapper">
+        <section class="header">
+            <div class="headerWrapper">
+                <div class="headerContainer">
+                    <div class="languageBubble">
+                        <div class="languageItem">
+                            <img class="languagePoint" src="/img/LanguagePoint.png"/><a class="disabled">Русский</a>
+                        </div>
+                        <div class="languageItem">
+                            <img class="languagePoint invisible" src="/img/LanguagePoint.png"/><a href="#" id="chooseEnglish">English</a>
+                        </div>
+                    </div>
+                    <ul class="menu">
+                        <li>
+                            <a class="menuItem" href="/ru/aboutartist">Узнать</a>
+                    
+                            <div class="subMenu hiddenWithoutHover">
+                                <img src="/img/AboutLine_ru.png">
+                    
+                                <div class="subMenuItem"><a href="/ru/aboutartist">Обо мне</a></div>
+                                <div class="subMenuItem"><a href="/ru/aboutstudio">О мастерской</a></div>
+                                <div class="subMenuItem"><a href="/ru/aboutprocess">О процессе</a></div>
+                                <div class="subMenuItem"><a href="/ru/aboutpresentations">О выступлениях</a></div>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="menuItem" href="/ru/myworks">Мои работы</a>
+                    
+                            <div class="subMenu hiddenWithoutHover">
+                                <img src="/img/MyWorksLine_ru.png"></div>
+                        </li>
+                        <li>
+                            <a class="menuItem" href="https://www.livemaster.ru/stakheeva">Магазин</a>
+                    
+                            <div class="subMenu hiddenWithoutHover">
+                                <img src="/img/ShopLine_ru.png">
+                            </div>
+                        </li>
+                        <li>
+                            <a class="menuItem" href="http://abcbears.blogspot.ru/">Блог</a>
+                    
+                            <div class="subMenu hiddenWithoutHover">
+                                <img src="/img/BlogLine_ru.png">
+                            </div>
+                        </li>
+                        <li>
+                            <a class="menuItem" href="/ru/contacts">Контакты</a>
+                    
+                            <div class="subMenu hiddenWithoutHover">
+                                <img src="/img/ContactLine_ru.png">
+                            </div>
+                        </li>
+                    </ul>
+                    <a class="topper" href="/ru/index.html"><img src="/img/Logo.png"></a>
+                    <a class="topperText" href="/ru/index.html">Bears & Co by Svetlana Stakheeva</a>
+                </div>
+            </div>
+        </section>
+        <section class="content">
+            
+<div ng-controller="MyWorksController">
+  
+  <div class="margin10pxTop" ng-repeat="collection in collections | filter:collectionsFilter">
+    <h3>{{collection.name[lang]}}</h3>
+    <div ng-bind-html="collection.collection_description[lang]"></div>
+    <br/>
+    <a ng-repeat="item in collection.items | filter:itemsFilter | limitTo:collection.limit || limit"
+       class="shopItem"
+       ng-class="{'isNotTeddyItem': (item.isNotTeddy)}"
+       href="{{item.url[lang]}}">
+      <img ng-src="{{item.photos[lang][0] || item.photos['ru'][0]}}" />
+      <div class="name" ng-show="!item.settings.forExample">{{item.name[lang]}}</div>
+    </a>
+    <div ng-show="collection.items.length > (collection.limit || limit)"><a class="grayLink" ng-click="showAll(collection)">Показать все работы</a></div>
+  </div>
+  
+</div>
+
+        </section>
+    </div>
+</div>
+<div class="footer">
+    <a href="https://www.livemaster.ru/stakheeva">
+        <div class="signupBubbleRu"></div>
+    </a>
+    <span>Весь контент © 2009-2020 Светлана Стахеева - все права защищены.</span><span class="fontWeightBold">&nbsp;</span>
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+{
+    "type": "object",
+    "headerTemplate": "{{self.collection_id}}",
+    "title": "Коллекцию",
+    "properties": {
+      "collection_id": {
+        "type": "string",
+        "title": "Идентификатор"
+      },
+      "settings": {
+        "title": "Настройки",
+        "type": "object",
+        "properties": {
+          "isPublic": {
+            "title": "Опубликован",
+            "type": "boolean",
+            "format": "checkbox"
+          },
+          "displayOnShop": {
+            "title": "Показывать в Магазине",
+            "type": "boolean",
+            "format": "checkbox"
+          },
+          "displayOnMyWorks": {
+            "title": "Показывать в Моих работах",
+            "type": "boolean",
+            "format": "checkbox"
+          }
+        },
+        "required": ["isPublic", "displayOnShop", "displayOnMyWorks"]
+      },
+      "name": {
+        "title": "Название",
+        "$ref": "/data/schemas/translatable_string.json"
+      },
+      "collection_description": {
+        "title": "Описание",
+        "$ref": "/data/schemas/translatable_html.json"
+      },
+      "items": {
+        "type": "array",
+        "title": "Зверики",
+        "format": "tabs",
+        "items": {
+          "$ref": "/data/schemas/light_item.json"
+        }
+      }
+    },
+    "required": ["collection_id", "name", "collection_description", "items"]
+}

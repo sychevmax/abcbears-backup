@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Segoe Print";
+  src: local("Segoe Print");
+  src: url("/fonts/segoeprint.eot?#"), url("/fonts/segoeprint.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Segoe Print";
+  src: local("Segoe Print");
+  src: url("/fonts/segoeprintbold.eot?#"), url("/fonts/segoeprintbold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal; }

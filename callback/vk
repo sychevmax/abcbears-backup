@@ -1,0 +1,15 @@
+<?php 
+
+if (!isset($_REQUEST)) { 
+  return; 
+} 
+//Получаем и декодируем уведомление 
+//$data = json_decode(file_get_contents('php://input')); 
+$data = file_get_contents('php://input'); 
+
+$file = fopen('vk_actions.txt','a+');
+$res = fwrite($file, $data);
+fclose($file); 
+echo('ok'); 
+break;
+?> 

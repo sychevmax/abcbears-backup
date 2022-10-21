@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "ru": {
+      "type": "string",
+      "format": "html",
+      "options": {
+        "wysiwyg": false
+      }
+    },
+    "en": {
+      "type": "string",
+      "format": "html",
+      "options": {
+        "wysiwyg": false
+      }
+    }
+  },
+  "format": "grid",
+  "required": ["en", "ru"]
+}
